@@ -6,16 +6,18 @@
 # Compiled at: 2019-04-09 19:23:44
 from __future__ import absolute_import, print_function, unicode_literals
 from _Framework.Capabilities import *
-from .Launchpad import Launchpad
+from .MPDRx_Navigation import MPDRxNavigation
 
 def create_instance(c_instance):
-    return Launchpad(c_instance)
+    return MPDRxNavigation(c_instance)
 
 
 def get_capabilities():
-    return {CONTROLLER_ID_KEY: controller_id(vendor_id=4661, product_ids=[
-                         14, 32, 54], model_name=[
-                         'Launchpad', 'Launchpad S', 'Launchpad Mini']), 
+    return {CONTROLLER_ID_KEY: controller_id(vendor_id=2536, product_ids=[
+                         108], model_name='Akai MPD32'), 
        PORTS_KEY: [
                  inport(props=[NOTES_CC, REMOTE, SCRIPT]),
-                 outport(props=[NOTES_CC, REMOTE, SCRIPT])]}
+                 inport(props=[NOTES_CC]),
+                 inport(props=[NOTES_CC]),
+                 outport(props=[SCRIPT]),
+                 outport(props=[])]}
